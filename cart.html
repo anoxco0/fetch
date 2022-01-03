@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #displayCart{
+            width: 100%;
+        }
+        #displayCart>div{
+            display: flex;
+            margin-top: 40px;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <div id="displayCart"></div>
+    <div id="total"></div>
+</body>
+</html>
+<script>
+    var totalprice = 0;
+    var arr = JSON.parse(localStorage.getItem("nonVeg"));
+    for (var i = 0; i < arr.length; i++) {
+        var div = document.createElement("div");
+
+        var Name = document.createElement("div");
+        Name.innerHTML=arr[i].name;
+
+        var price = document.createElement("div");
+        var prices =arr[i].price;
+        price.innerHTML=prices;
+        console.log(prices)
+        
+        div.append(Name, price);
+        document.getElementById("displayCart").append(div);
+    }
+     document.getElementById("total").append(totalprice);
+</script>
